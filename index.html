@@ -57,7 +57,31 @@
                 return height;
             }
         }
-        console.log( new Person());
+
+        /***
+            O método estático nos permite criar um atributo/método em tempo de execução da classe sem precisar Instanciar, 
+            porém não nos permite acessar as variáveis que necessitam da instância p/ poder existir.
+            Logo, o método estático abaixo, colocado antes ou depois de uma instância de Person
+
+             Person.static_method = function(){
+                     console.log('This is my first static method' + name);
+             }
+
+             ,retornará vazio. 
+             Obs:. No caso de já existir instância de Person e os atributos estiverem setados, ainda assim,
+                   através de um método/atributo estático vc não conseguirá acessar a variável.
+
+        ***/
+        Person.static_method = function(){
+            console.log('This is my first static method' + name);
+        }
+        
+        
+
+        Person.static_attr = 'My_First_Attr_Method';
+        console.log(Person.static_attr);
+
+        
         var pessoa = new Person();
         //pessoa.name = 'Leonan';
         pessoa.setName('Leonan');
@@ -65,10 +89,10 @@
         pessoa.setAge(23);
         //pessoa.height = 1.76;
         pessoa.setHeight(1.76);
-       
-        /* O atributo name está encapsulado e só pode ser acessado via metodo getName(), 
-        está protegido de acesso externo diretamente, pois na declaração da variável na Classe utilizou-se var.
-       console.log(pessoa.name);*/
+        
+        /******* ENCAPSULAMENTO -> O atributo name está encapsulado e só pode ser acessado via metodo getName(), 
+                 está protegido de acesso externo diretamente, pois na declaração da variável name na Classe utilizou-se var.
+        *******/
         /*var pessoa1 = new Person();
         pessoa1.name = 'Victor';
         pessoa1.setName('Victor');
@@ -79,8 +103,9 @@
         //pessoa.hello();
 
         //pessoa1.sayHello(pessoa1.getName());
-
+        
         console.log(pessoa);
+        Person.static_method();
        // console.log(pessoa1);
 
 
