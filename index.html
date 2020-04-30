@@ -23,36 +23,65 @@
         */
         function Person(){
             //Captura o escopo da minha função, logo estamos trabalhando isolados do Escopo Global.
-            this.name;
-            this.idade;
-            this.height;
+            //this.name;
+            //this.idade;
+            //this.height;
+            var name;
+            var idade;
+            var height;
 
             this.sayHello = function(name){
                 console.log('Hello '+ name);
             }
-
             this.hello = function hello(name){
                 console.log('Hello '+ name);
             }
+
+            this.getName = function getName(){
+                return name;
+            }
+            this.setName = function setName(_name){
+                name = _name;
+            }
+            this.getAge = function(){
+                return age;
+            }
+            this.setAge = function(_age){
+                age = _age;
+            }
+
+            this.setHeight = function setHeight(_height){
+                height = _height;
+            }
+            this.getHeight = function getHeight(){
+                return height;
+            }
         }
-
+        console.log( new Person());
         var pessoa = new Person();
-        pessoa.name = 'Leonan';
-        pessoa.age= '23'
-        pessoa.height = 1.76;
-
-        var pessoa1 = new Person();
+        //pessoa.name = 'Leonan';
+        pessoa.setName('Leonan');
+        //pessoa.age= '23'
+        pessoa.setAge(23);
+        //pessoa.height = 1.76;
+        pessoa.setHeight(1.76);
+       
+        /* O atributo name está encapsulado e só pode ser acessado via metodo getName(), 
+        está protegido de acesso externo diretamente, pois na declaração da variável na Classe utilizou-se var.
+       console.log(pessoa.name);*/
+        /*var pessoa1 = new Person();
         pessoa1.name = 'Victor';
+        pessoa1.setName('Victor');
         pessoa1.age= '25'
         pessoa1.height = 1.78;
-        
-        pessoa.sayHello(pessoa.name);
-        pessoa.hello();
+        */
+        //pessoa.sayHello(pessoa.getName());
+        //pessoa.hello();
 
-        pessoa1.sayHello(pessoa1.name);
+        //pessoa1.sayHello(pessoa1.getName());
 
         console.log(pessoa);
-        console.log(pessoa1);
+       // console.log(pessoa1);
 
 
 
