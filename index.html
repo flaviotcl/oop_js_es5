@@ -30,10 +30,13 @@
             var age = _age;
             var height = _height;
 
+            function privateFunction() {
+                console.log('Private Function');
+            }
             this.initialize = function initialize(){
                 console.log('Init Function');
             }
-
+            
             this.sayHello = function(name){
                 console.log('Hello '+ name);
             }
@@ -83,12 +86,23 @@
         
 
         Person.static_attr = 'My_First_Attribute_Static';
-        console.log(Person.static_attr);
+       // console.log(Person.static_attr);
 
         
         //var pessoa = new Person();
         var pessoa = new Person('Leonan',23,1.76);
-        pessoa.initialize();
+        //pessoa.initialize();
+
+        pessoa.sayHello(pessoa.getName());
+        
+        /*** O Método abaixo é privado só pode ser acessado no interior da classe. P/ construir um método
+             privado basta criar a  function s/ o "this".
+             function privateFunction(){
+                     console.log('Private Function');
+             }
+        ****/
+        pessoa.privateFunction();
+
 
         //pessoa.name = 'Leonan';
         //pessoa.setName('Leonan');
@@ -114,8 +128,11 @@
 
         //pessoa1.sayHello(pessoa1.getName());
         
-        console.log(pessoa.getAge());
-        Person.static_method();
+        //console.log(pessoa.getAge());
+
+        //Person.static_method();
+
+
        // console.log(pessoa1);
 
 
