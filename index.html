@@ -8,18 +8,67 @@
 <body>
     <p>OO Javascript</p>
     <script>
+        /* Formas de Declarar uma Classe - Javascript
         function Person() {
 
         }
         var Person = function Person{
 
         }
-
         var Person = {
 
 
             
         }
+        */
+        function Person(){
+            //Captura o escopo da minha função, logo estamos trabalhando isolados do Escopo Global.
+            this.name;
+            this.idade;
+            this.height;
+
+            this.sayHello = function(name){
+                console.log('Hello '+ name);
+            }
+
+            this.hello = function hello(name){
+                console.log('Hello '+ name);
+            }
+        }
+
+        var pessoa = new Person();
+        pessoa.name = 'Leonan';
+        pessoa.age= '23'
+        pessoa.height = 1.76;
+
+        var pessoa1 = new Person();
+        pessoa1.name = 'Victor';
+        pessoa1.age= '25'
+        pessoa1.height = 1.78;
+        
+        pessoa.sayHello(pessoa.name);
+        pessoa.hello();
+
+        pessoa1.sayHello(pessoa1.name);
+
+        console.log(pessoa);
+        console.log(pessoa1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>
