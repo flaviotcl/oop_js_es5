@@ -21,14 +21,18 @@
             
         }
         */
-        function Person(){
+        function Person(_name, _age, _height){
             //Captura o escopo da minha função, logo estamos trabalhando isolados do Escopo Global.
             //this.name;
-            //this.idade;
+            //this.age;
             //this.height;
-            var name;
-            var idade;
-            var height;
+            var name = _name;
+            var age = _age;
+            var height = _height;
+
+            this.initialize = function initialize(){
+                console.log('Init Function');
+            }
 
             this.sayHello = function(name){
                 console.log('Hello '+ name);
@@ -73,22 +77,28 @@
 
         ***/
         Person.static_method = function(){
-            console.log('This is my first static method' + name);
+            console.log('This is my first Static Method');
         }
         
         
 
-        Person.static_attr = 'My_First_Attr_Method';
+        Person.static_attr = 'My_First_Attribute_Static';
         console.log(Person.static_attr);
 
         
-        var pessoa = new Person();
+        //var pessoa = new Person();
+        var pessoa = new Person('Leonan',23,1.76);
+        pessoa.initialize();
+
         //pessoa.name = 'Leonan';
-        pessoa.setName('Leonan');
+        //pessoa.setName('Leonan');
+
         //pessoa.age= '23'
-        pessoa.setAge(23);
+        //pessoa.setAge(23);
+
         //pessoa.height = 1.76;
-        pessoa.setHeight(1.76);
+        //pessoa.setHeight(1.76);
+
         
         /******* ENCAPSULAMENTO -> O atributo name está encapsulado e só pode ser acessado via metodo getName(), 
                  está protegido de acesso externo diretamente, pois na declaração da variável name na Classe utilizou-se var.
@@ -104,7 +114,7 @@
 
         //pessoa1.sayHello(pessoa1.getName());
         
-        console.log(pessoa);
+        console.log(pessoa.getAge());
         Person.static_method();
        // console.log(pessoa1);
 
