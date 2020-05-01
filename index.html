@@ -117,10 +117,19 @@
         
         //var pessoa = new Person('Leonan',23,1.76);
 
+        var victor = new Person('Victor',22,1.70);
+        console.log(victor.getName(),victor.getAge());
+        victor.happyBirthday();
+        console.log(victor.getName(),victor.getAge());
+
         var pessoa = new Employee('Leonan',23,1.76);
-        console.log(pessoa.getAge());
+        console.log(pessoa.getName(),pessoa.getAge());
+        // Polimorfismo ---- Abaixo reescrevemos o Método herdado da classe Person pela instância da classe Employee !
+        pessoa.happyBirthday  =  function happyBirthday(){
+            return this.setAge(this.getAge() + 2);
+        }
         pessoa.happyBirthday();
-        console.log(pessoa.getAge());
+        console.log(pessoa.getName(),pessoa.getAge());
         //pessoa.initialize();
        // console.log(pessoa);
 
