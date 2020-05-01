@@ -88,12 +88,23 @@
         Person.static_attr = 'My_First_Attribute_Static';
        // console.log(Person.static_attr);
 
+
+        Person.prototype.myProtoFunc =  function(){
+            console.log('First Prototype Function !');
+        }
         
         //var pessoa = new Person();
+        
+        
         var pessoa = new Person('Leonan',23,1.76);
         //pessoa.initialize();
+        console.log(pessoa);
 
-        pessoa.sayHello(pessoa.getName());
+        console.log(pessoa.__proto__);
+        console.log(Person.prototype);
+
+        pessoa.myProtoFunc();
+        //pessoa.sayHello(pessoa.getName());
         
         /*** O Método abaixo é privado só pode ser acessado no interior da classe. P/ construir um método
              privado basta criar a  function s/ o "this".
@@ -101,7 +112,7 @@
                      console.log('Private Function');
              }
         ****/
-        pessoa.privateFunction();
+        //pessoa.privateFunction();
 
 
         //pessoa.name = 'Leonan';
